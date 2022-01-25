@@ -20,8 +20,8 @@ public class EventManager {
             }
             return instance;
         }
-    }
-
+    }  
+    public static GameState currentGameState;
 
     // Don't get any funny ideas just because I'm using lambda expressions () => {}
     // I still hate this things. Nobody use them!! >:(
