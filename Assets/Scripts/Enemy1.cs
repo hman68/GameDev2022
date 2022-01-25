@@ -9,19 +9,19 @@ public class Enemy1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        countdown = 5.0f;
+        countdown = 1.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        while (true) 
+        if(EventManager.currentGameState == GameState.Play)
         {
             countdown -= 1 * Time.deltaTime;
             if (countdown < 0) 
             {
                 Instantiate(projectile);
-                countdown = 5.0f;
+                countdown = 1.0f;
             }
         }
     }

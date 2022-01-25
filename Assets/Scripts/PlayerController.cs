@@ -13,6 +13,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Demonstration purposes only. Remove later
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(EventManager.currentGameState == GameState.Play){
+                EventManager.Instance.PauseEvent();
+            } else {
+                EventManager.Instance.UnpauseEvent();
+            }
+        }
+    }
+
+    void ShitYourPants()
+    {
         
     }
 }
