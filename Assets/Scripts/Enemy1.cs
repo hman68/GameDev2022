@@ -24,5 +24,13 @@ public class Enemy1 : MonoBehaviour
                 countdown = 1.0f;
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            if(EventManager.currentGameState == GameState.Play) {
+                EventManager.currentGameState = GameState.Paused;
+            } else {
+                EventManager.currentGameState = GameState.Play;
+            }
+        }
     }
 }

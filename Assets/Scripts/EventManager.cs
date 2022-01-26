@@ -21,13 +21,13 @@ public class EventManager {
             return instance;
         }
     }  
-    public static GameState currentGameState;
+    public static GameState currentGameState = GameState.Play;
 
     // Don't get any funny ideas just because I'm using lambda expressions () => {}
     // I still hate this things. Nobody use them!! >:(
     // Either way, all these events have to be filled with atleast one function in order to, yknow, work
-    public Action PauseEvent = () => { Debug.Log("Event Fired: Pause"); };
-    public Action UnpauseEvent = () => { Debug.Log("Event Fired: Unpause"); };
+    public Action PauseEvent = () => { Debug.Log("Event Fired: Pause"); currentGameState = GameState.Paused; };
+    public Action UnpauseEvent = () => { Debug.Log("Event Fired: Unpause"); currentGameState = GameState.Play; };
 
 
     /*
