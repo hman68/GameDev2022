@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Eventmanager Demo Scene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Additive Scene Loading Demo Scene.unity
+    guid: bc83a81867ba56b4b9e97e73826cae01
+  - enabled: 1
+    path: Assets/Scenes/Additive Scene A.unity
+    guid: 6616e3752febab64d9569be49a9a6e45
   m_configObjects: {}

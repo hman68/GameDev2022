@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ProBuilderDemoSceneCameraController : MonoBehaviour
 {
+
+    public float maxDistance = 90f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +17,8 @@ public class ProBuilderDemoSceneCameraController : MonoBehaviour
     {
         float translation = Input.GetAxis("Horizontal") * Time.deltaTime * 10;
         transform.Translate(translation, 0, 0);
-        if(transform.position.x > 90) {
-            transform.position = new Vector3(90, 1, 0);
+        if(transform.position.x > maxDistance) {
+            transform.position = new Vector3(maxDistance, 1, 0);
         }
         if(transform.position.x < 0) {
             transform.position = new Vector3(0, 1, 0);
