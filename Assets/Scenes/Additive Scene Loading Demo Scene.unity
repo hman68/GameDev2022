@@ -1105,7 +1105,7 @@ MonoBehaviour:
     one method we can use to load and unload scenes.
 
     In the next demo, you''ll
-    see how we can use ''airlocks'' to structure our SceneLoader objects.'
+    see how we can do this in a better way :)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

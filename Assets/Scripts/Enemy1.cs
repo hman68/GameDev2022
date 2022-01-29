@@ -15,21 +15,11 @@ public class Enemy1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(EventManager.currentGameState == GameState.Play)
-        {
+        if(EventManager.currentGameState == GameState.Play) {
             countdown -= 1 * Time.deltaTime;
-            if (countdown < 0) 
-            {
+            if(countdown < 0) {
                 Instantiate(projectile);
                 countdown = 1.0f;
-            }
-        }
-
-        if(Input.GetKeyDown(KeyCode.Escape)) {
-            if(EventManager.currentGameState == GameState.Play) {
-                EventManager.currentGameState = GameState.Paused;
-            } else {
-                EventManager.currentGameState = GameState.Play;
             }
         }
     }
