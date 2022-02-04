@@ -15,12 +15,13 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.forward * speed * verticalInput * Time.deltaTime);
-        transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime);
+        /*transform.Translate(Vector3.forward * speed * verticalInput * Time.deltaTime);
+        transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime);*/
+        playerRB.AddForce(new Vector3(horizontalInput*speed,0f, verticalInput * speed));
     }
 
     void ShitYourPants()
