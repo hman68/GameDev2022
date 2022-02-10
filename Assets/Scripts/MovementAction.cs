@@ -2,24 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vector3Null{
-    public Vector3 v3 { get; set; }
-}
-
 public class MovementAction : MonoBehaviour
 {
     private Rigidbody rb;
-    public int maxLen;
+    public int dashLen;
     public float dashSpeed;
-    private Vector3Null def = new Vector3Null();
-    private Vector3Null pos;
-    private bool isDashing;
+    private Vector3 normVelocity;
+    private bool isDashing = false;
     // Start is called before the first frame update
     void Start()
     {
-        pos = def;
+
         rb = GetComponent<Rigidbody>();
-        pos.v3 = Vector3.zero;
 
     }
 
@@ -29,34 +23,41 @@ public class MovementAction : MonoBehaviour
        
         if(Input.GetKeyDown(KeyCode.Space) && !isDashing)
         {
-            Dash();
+            Debug.Log("DashAttempt");
+            StartCoroutine(Dash());
+        }
+        if(Input.GetKeyDown(KeyCode.Space)){
+            Debug.Log("Space");
         }
         //Stops the object after it moves the maximum dash length
-        if(pos != null && Vector3.Distance(rb.position,pos.v3)>maxLen){
+        /*if(pos != null && Vector3.Distance(rb.position,pos.v3)>maxLen){
             isDashing = false;
             if(Input.GetKey(KeyCode.D)){
                 rb.velocity = new Vector3(10f,0f,0f);
-                pos = null;
+               normVelocity = null;
             }else{
                 while(rb.velocity.magnitude > 0.01f){
                     rb.velocity = rb.velocity*.02f;
                 }
                 rb.velocity = Vector3.zero;
-                pos = null;
+               normVelocity = null;
             }
             
-        }
+        }*/
     }
     /*
     Dashes the character in a certain direction
     */
-    IEneumerator Dash()
+    IEnumerator Dash()
     {
+        Debug.Log("Dashing");
         isDashing = true;
-        pos = def;
-        pos.v3 = rb.position;
-        rb.velocity = new Vector3(rb.velocity.x * 10f, rb.velocity.y, rb.velocity.z * 10f);
-        return new yield WaitForSeconds(1);
+       normVelocity = rb.velocity;
+        rb.velocity = new Vector3(dashSpeed * (rb.velocity.x/rb.velocity.magnitude), rb.velocity.y,  dashSpeed * (rb.velocity.z/rb.velocity.magnitude));
+        yield return new  WaitForSecondsRealtime(dashLen);
+        Debug.Log("endDash");
+        rb.velocity = normVelocity;
+        yield return new WaitForSecondsRealtime(10);
         isDashing = false;
     }
 }
