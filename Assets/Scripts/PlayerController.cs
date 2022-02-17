@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRB;
     private float horizontalInput;
     private float verticalInput;
+    private float prevHoriz;
+    private float prevVert;
+    private float hyp;
     public float speed;
     // Start is called before the first frame update
     void Start()
@@ -19,9 +23,8 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
-        /*transform.Translate(Vector3.forward * speed * verticalInput * Time.deltaTime);
-        transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime);*/
-        playerRB.AddForce(new Vector3(horizontalInput*speed,0f, verticalInput * speed));
+        hyp = MathF.Sqrt((horizontalInput * horizontalInput)+(verticalInput * verticalInput));
+        playerRB.AddForce(new Vector3((horizontalInput/hyp)*speed,0f, (verticalInput/hyp) * speed));
     }
 
     void ShitYourPants()

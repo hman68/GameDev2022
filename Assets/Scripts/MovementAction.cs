@@ -29,21 +29,7 @@ public class MovementAction : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space)){
             Debug.Log("Space");
         }
-        //Stops the object after it moves the maximum dash length
-        /*if(pos != null && Vector3.Distance(rb.position,pos.v3)>maxLen){
-            isDashing = false;
-            if(Input.GetKey(KeyCode.D)){
-                rb.velocity = new Vector3(10f,0f,0f);
-               normVelocity = null;
-            }else{
-                while(rb.velocity.magnitude > 0.01f){
-                    rb.velocity = rb.velocity*.02f;
-                }
-                rb.velocity = Vector3.zero;
-               normVelocity = null;
-            }
-            
-        }*/
+
     }
     /*
     Dashes the character in a certain direction
