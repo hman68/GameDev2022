@@ -5,15 +5,18 @@ using UnityEngine;
 public class MovementAction : MonoBehaviour
 {
     private Rigidbody rb;
-    public int dashLen;
+    public float dashLen;
     public float dashSpeed;
+    public float cooldown;
     private Vector3 normVelocity;
-    private bool isDashing = false;
+    public bool isDashing;
+    private bool ready = true;
     // Start is called before the first frame update
     void Start()
     {
 
         rb = GetComponent<Rigidbody>();
+        isDashing = false;
 
     }
 
@@ -21,7 +24,7 @@ public class MovementAction : MonoBehaviour
     void Update()
     {
        
-        if(Input.GetKeyDown(KeyCode.Space) && !isDashing)
+        if(Input.GetKeyDown(KeyCode.Space) && ready)
         {
             Debug.Log("DashAttempt");
             StartCoroutine(Dash());
@@ -38,12 +41,15 @@ public class MovementAction : MonoBehaviour
     {
         Debug.Log("Dashing");
         isDashing = true;
+        ready = false;
        normVelocity = rb.velocity;
         rb.velocity = new Vector3(dashSpeed * (rb.velocity.x/rb.velocity.magnitude), rb.velocity.y,  dashSpeed * (rb.velocity.z/rb.velocity.magnitude));
+        Debug.Log(rb.velocity);
         yield return new  WaitForSecondsRealtime(dashLen);
         Debug.Log("endDash");
         rb.velocity = normVelocity;
-        yield return new WaitForSecondsRealtime(10);
         isDashing = false;
+        yield return new WaitForSecondsRealtime(cooldown);
+        ready = true;
     }
 }

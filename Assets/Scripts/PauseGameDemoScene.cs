@@ -14,12 +14,12 @@ public class PauseGameDemoScene : MonoBehaviour
     void Update()
     {
         //Demonstration purposes only. Remove later
-        if(Input.GetKeyDown(KeyCode.Escape)) {
+       /* if(Input.GetKeyDown(KeyCode.Escape)) {
             if(EventManager.currentGameState == GameState.Play) {
                 EventManager.PauseEvent();
             } else {
                 EventManager.UnpauseEvent();
             }
-        }
+        }*/
     }
 }

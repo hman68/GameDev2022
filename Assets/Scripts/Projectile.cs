@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour
     {
         if(EventManager.currentGameState == GameState.Play)
         {
-            transform.position += new Vector3(0, 1, 0) * Time.deltaTime;
+            transform.position += new Vector3(0, 1, 0) * Time.deltaTime * speed;
         }
     }
 }
