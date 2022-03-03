@@ -37,12 +37,14 @@ public class PlayerController : MonoBehaviour
         }
         if(horizontalInput == 0){
             playerRB.AddForce(-playerRB.velocity.x * speed,0f,0f);
-            Debug.Log("works");
+        }
+        if(verticalInput == 0){
+            playerRB.AddForce(0f,0f,-playerRB.velocity.z * speed );
         }
         if(Mathf.Abs(playerRB.velocity.x) < 0.001f){
             playerRB.velocity = new Vector3(0f, playerRB.velocity.y, playerRB.velocity.z);
         }
-        if(playerRB.velocity.z< 0.001f){
+        if(Mathf.Abs(playerRB.velocity.z) < 0.001f){
             playerRB.velocity = new Vector3(playerRB.velocity.x, playerRB.velocity.y, 0f);
         }
     }
