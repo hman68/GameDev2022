@@ -26,12 +26,13 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
         hyp = MathF.Sqrt((horizontalInput * horizontalInput)+(verticalInput * verticalInput));
         if(!GetComponent<MovementAction>().isDashing && hyp != 0){
-            playerRB.AddForce(new Vector3((horizontalInput/hyp)*speed,0f, (verticalInput/hyp) * speed));
+            playerRB.AddForce(new Vector3((horizontalInput/hyp)*speed ,0f, (verticalInput/hyp) * speed ), ForceMode.Acceleration);
         }
         if(!GetComponent<MovementAction>().isDashing){
             Vector3 vel = playerRB.velocity;
             if(vel.magnitude > maxSpeed){
-                vel = new Vector3((vel.x/vel.magnitude) * maxSpeed, 0f, (vel.z/vel.magnitude) * maxSpeed);
+                vel = playerRB.velocity;
+                Vector3.ClampMagnitude(vel, maxSpeed);
                 playerRB.velocity = vel;
             }
         }
@@ -49,5 +50,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void takeDamage(float dam){
+
+    }
 
 }

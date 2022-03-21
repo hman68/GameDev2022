@@ -13,17 +13,24 @@ public class KnifeGoblin : MonoBehaviour
     Rigidbody monsterRb;
     float countdown;
     public GameObject projectile;
+    public GameObject player;
+    public Transform playerTransform;
     // Start is called before the first frame update
     void Start()
     {
+        health = 10.0f;
+        speed = 1.0f;
         monsterRb = GetComponent<Rigidbody>();
         countdown = 10.0f;
+        player = GameObject.FindWithTag("Player");
+        playerTransform = player.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        monsterRb.AddForce(new Vector3(speed, 0f, speed));
+        transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
+        /*
         if (EventManager.currentGameState == GameState.Play)
         {
             countdown -= 1 * Time.deltaTime;
@@ -33,6 +40,7 @@ public class KnifeGoblin : MonoBehaviour
                 countdown = 1.0f;
             }
         }
+        */
     }
     public void takeDamage(float damage) 
     {

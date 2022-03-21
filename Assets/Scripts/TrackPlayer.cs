@@ -19,6 +19,6 @@ public class TrackPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(gmScript.playerTransform);
+        //transform.LookAt(gmScript.playerTransform);
     }
 }

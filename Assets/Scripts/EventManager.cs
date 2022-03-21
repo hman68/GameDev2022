@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +11,7 @@ public class EventManager {
     * ...a new instance of us will be made
     * It's wierd but it works...
     */
+    /*
     private static EventManager instance;
     public static EventManager Instance {
         get
@@ -21,7 +22,7 @@ public class EventManager {
             return instance;
         }
     }  
-    public static GameState currentGameState = GameState.Play;
+    //public static GameState currentGameState = GameState.Play;
 
     // Don't get any funny ideas just because I'm using lambda expressions () => {}
     // I still hate this things. Nobody use them!! >:(
@@ -38,7 +39,7 @@ public class EventManager {
      */
 
     //Empty constructor for the sake of being able to create this component out of thin air
-    private EventManager() {
+    /*  private EventManager() {
     }
     //So this should manage the spawners, calling an event when the player is in the scene the spawners are in.
     //This event will activate the spawners and fill them with enimies.
@@ -46,3 +47,4 @@ public class EventManager {
 
 }
 
+*/
