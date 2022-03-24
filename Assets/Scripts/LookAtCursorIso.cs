@@ -25,6 +25,7 @@ public class LookAtCursorIso : MonoBehaviour
        // rotation.SetFromToRotation(rb.position, rh.point);
        // rotation.eulerAngles = new Vector3(0,rotation.eulerAngles.y,0);
        // rb.MoveRotation(rotation);
+       rh.point = new Vector3(rh.point.x, 0f, rh.point.z);
        GetComponent<Transform>().LookAt(rh.point);
     }
 }

@@ -10,6 +10,7 @@ public class DefaultProjectile : MonoBehaviour
     private Rigidbody player;
     private bool rtf; // ready to fire
     public float rpm;
+    public float travelTime;
     void Start()
     {
         rtf = true;
@@ -30,10 +31,12 @@ public class DefaultProjectile : MonoBehaviour
     IEnumerator Shoot(){
         Rigidbody clone;
         rtf = false;
-        clone = (Rigidbody)Instantiate(proj, player.position, player.rotation);
+        clone = (Rigidbody)Instantiate(proj, player.position + (player.rotation * new Vector3(0,0,0.5f)), player.rotation);
         clone.AddForce(clone.rotation * Vector3.forward * speed, ForceMode.VelocityChange);
         yield return new WaitForSecondsRealtime(1f);
         rtf = true;
+        yield return new WaitForSecondsRealtime(travelTime);
+        Destroy(clone.gameObject);
         
     }
 }

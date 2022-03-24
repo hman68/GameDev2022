@@ -544,7 +544,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &1111177785
 MonoBehaviour:
@@ -558,6 +558,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9b608792438d24db2bcf08aa5b7095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1111177790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111177777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 589317c855d144b4c8c1e44550de8be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  rpm: 0
+  travelTime: 1
 --- !u!850595691 &1169969275
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -673,7 +688,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ce4c64dc277739445ad7dbe30d8a108b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -973,7 +988,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 628639fe163e5634b9d0056df9c5987c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
