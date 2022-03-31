@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     Rigidbody projRb;
     void Start()
     {
-        speed = .5f;
+        speed = 5f;
         projRb = GetComponent<Rigidbody>();
     }
 

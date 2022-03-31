@@ -570,9 +570,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589317c855d144b4c8c1e44550de8be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  rpm: 0
+  speed: 10
+  rpm: 120
   travelTime: 1
+--- !u!4 &1111177794 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4068120004621565647, guid: ce8ad4bed621a2149a883facda4bf948,
+    type: 3}
+  m_PrefabInstance: {fileID: 977615360}
+  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &1169969275
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -838,9 +844,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 9999999
-  projectile: {fileID: 0}
-  player: {fileID: 0}
-  playerTransform: {fileID: 0}
+  projectile: {fileID: 2134020354}
+  player: {fileID: 1111177777}
+  playerTransform: {fileID: 1111177794}
 --- !u!54 &1853176561
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1090,7 +1096,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134020354}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

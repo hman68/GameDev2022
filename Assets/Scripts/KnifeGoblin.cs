@@ -41,9 +41,14 @@ public class KnifeGoblin : MonoBehaviour
             }
         }
         */
+        
     }
     public void takeDamage(float damage) 
     {
         health -= damage;
+        if(health <= 0){
+            Debug.Log("Dead");
+            Destroy(this.gameObject);
+        }
     }
 }

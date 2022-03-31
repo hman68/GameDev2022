@@ -31,12 +31,13 @@ public class DefaultProjectile : MonoBehaviour
     IEnumerator Shoot(){
         Rigidbody clone;
         rtf = false;
-        clone = (Rigidbody)Instantiate(proj, player.position + (player.rotation * new Vector3(0,0,0.5f)), player.rotation);
-        clone.AddForce(clone.rotation * Vector3.forward * speed, ForceMode.VelocityChange);
-        yield return new WaitForSecondsRealtime(1f);
+        clone = (Rigidbody)Instantiate(proj, player.position + (player.rotation * new Vector3(0,0.5f,1.5f)), new Quaternion(0f, player.rotation.y, 0f, player.rotation.w));
+        clone.gameObject.AddComponent<PlayerProj>();
+        yield return new WaitForSecondsRealtime((60f/rpm));
         rtf = true;
         yield return new WaitForSecondsRealtime(travelTime);
-        Destroy(clone.gameObject);
-        
+        if(clone.gameObject){
+            Destroy(clone.gameObject);
+        }
     }
 }
