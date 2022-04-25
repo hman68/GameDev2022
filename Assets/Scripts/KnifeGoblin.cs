@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KnifeGoblin : MonoBehaviour
+public class KnifeGoblin : MonoBehaviour, EnemyBase
 {
     /// <summary>
     /// This script is supposed to test how enemies behavior as well as how well dashing will work for them and projectiles.
@@ -27,9 +27,9 @@ public class KnifeGoblin : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
+        this.GetComponent<Rigidbody>().AddForce(this.transform.rotation * Vector3.forward * speed);
         /*
         if (EventManager.currentGameState == GameState.Play)
         {
@@ -50,5 +50,9 @@ public class KnifeGoblin : MonoBehaviour
             Debug.Log("Dead");
             Destroy(this.gameObject);
         }
+    }
+    public void printSpeed()
+    {
+        Debug.Log(speed);
     }
 }

@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         float xVal = Mathf.Clamp(playerPos.position.x+5, -xConstraints, xConstraints);
-        float yVal = Mathf.Clamp(playerPos.position.y +10, -yConstraints, yConstraints);
-        transform.position = new Vector3(xVal, yVal, -5);
+        float yVal = Mathf.Clamp(playerPos.position.z +10, -yConstraints, yConstraints);
+        transform.position = new Vector3(xVal, 5, yVal);
     }
 }
