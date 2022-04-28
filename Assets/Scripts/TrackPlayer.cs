@@ -6,19 +6,18 @@ public class TrackPlayer : MonoBehaviour
 {
     //This script will allow objects, and hopefully projectiles, to rotate towards the player.
     // Start is called before the first frame update
-    GameObject GameManager;
-    GameManager gmScript;
+    GameObject player;
+     
 
     void Start()
     {
-        GameManager = GameObject.Find("GameManager");
-        gmScript = GameManager.GetComponent<GameManager>();
+        player = GameObject.FindWithTag("Player");
 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.LookAt(gmScript.playerTransform);
+        transform.LookAt(player.transform.position);
     }
 }
